@@ -1,11 +1,11 @@
 # MLBB 日本語図鑑 — データ保守メモ
 
-更新：2026-11-07（日本時間）。公開ページ：`https://kyavet.com/mlbb/`、本体：`mlbb/index.html`。GitHub への反映は確認済み。公開 URL の外部到達確認は別途実施する。
+更新：2026-11-11（日本時間）。公開ページ：`https://kyavet.com/mlbb/`、本体：`mlbb/index.html`。GitHub への反映は確認済み。公開 URL の外部到達確認は別途実施する。
 
 ## 現在の収録と進捗
 
 - 収録 134件：通常サーバー133体＋Advanced Server の Dori（`isPlayable:false`）1体。**134体実装済みとは表現しない**。
-- `guide` の固有メモ：20件。`verified` のスキル資料照合：15件。**別軸**の `meta2026`（コンボ・主要装備・対面・連携候補の出典付き記録）は21件。重複があるため合算して完全検証数とはしない。全Lvの実機検証完了数ではない。
+- `guide` の固有メモ：35件。`verified` のスキル資料照合：35件。**別軸**の `meta2026`（コンボ・主要装備・対面・連携候補の出典付き記録）は41件。重複があるため合算して完全検証数とはしない。全Lvの実機検証完了数ではない。
 - 2026-11-05に通常版2.2.16（9月16日）の23体、10月14日調整（2.2.16a/2.2.16.1232）の5体、合計26体・28件の**資料に紐づけた変更差分**を追加。既存の試験版記録を含むパッチ履歴は27体・31件。パッチ差分は「最新の全Lv確定値」ではない。
 - 全件で名前・役割・日本語効果要約・レーン等を収録。パッチ別のスキル係数・装備・対面統計・固有動画の網羅は**未完**。
 - データの単一ソースは `<script id="embedded" type="application/json">…</script>` に格納された134件。実行時に `const H=JSON.parse(document.getElementById('embedded').textContent)` で参照。旧版のように JSON と JavaScript に二重記載しない。
@@ -85,3 +85,21 @@
 - 113件に `meta2026` がない。次はValentina、Khaleed、Franco、Minotaur、Angelaなどを優先し、仕様の現行版・レーン適性・装備を検証する。
 - 既に追加した数値・相性も、**出典のページ更新日＝ゲーム内の現行仕様保証ではない**。ゲーム内や正式パッチとの突合を続ける。
 - 契約書にはまだ着手しない。全件の情報検証と公開完了を先に行う。
+
+
+## 2026-11-11：アルダス・アウルス・オーロラ・バラッツ・バシアの更新
+
+- `mlbb/index.html` の `meta2026` を **36→41件**、`verified` を **30→35件**。旧来の `guide` は35件のまま。134件（通常133＋先行Dori 1）の収録数は変わらず、`meta2026` 未整備は **93件**。
+- 上記5体のパッシブ・S1・S2・ULTの名称と効果要約、技順候補、採用レーン、主要3装備、エンブレム・タレント・スペル、勝率差に基づく相性候補、連携候補、対策を追加。全Lvダメージ・CD・ビルドの最適性・直接対面の確定勝敗は未検証。
+- 特にAulusは、2026年4月の公式リメイク動画と通常版2.2.16a（10月14日）の調整を区別。Aldousの試験版2.2.30のCD短縮を通常サーバーへ誤反映しない。Auroraの6枠は**プレイヤー投稿例**（実測最頻ではない）。Baratsの最頻エンブレムは資料に「All」とあり、無理に特定型へ断定しない。Baxiaの装備はJG向けでROAMは未検証。
+- 出典：MLBBDex 2.2.16： [Aldous](https://mlbbdex.com/en/heroes/aldous) / [Aulus](https://mlbbdex.com/en/heroes/aulus) / [Aurora](https://mlbbdex.com/en/heroes/aurora) / [Barats](https://mlbbdex.com/en/heroes/barats) / [Baxia](https://mlbbdex.com/en/heroes/baxia) 。パッチ参照： [mlbb.tools 2.2.16](https://mlbb.tools/patch-notes/2.2.16) / [MLBBHub パッチ一覧](https://mlbbhub.com/patch-notes)。確認日2026-11-11。英語版掲載更新日は主に2026-11-09、Auroraは2026-10-19。掲載データの集計期間は表示形式・ランクに依存し、通常版2.2.16aを網羅するものではない。
+- 公式旧パッチ動画を4本追加：Aulus 2026-04-15 `koALw7pY9l0`、Aurora 2024-01-24 `dDINoY_1sSk`、Barats 2024-03-11 `RavkFRYYzKw`、Baxia 2024-03-11 `mzZI4hTjA74`。全て動画をタップした場合だけ埋め込む。数値・ビルドの現在適用は保証しない。
+- スマホサイドナビのロール・レーン絞り込みが未定義 `renderHome()` を呼ぶバグを、既存の `home()` 呼び出しに修正した。
+- GitHubコミット：[ae5d100](https://github.com/zmew/kyavet-site/commit/ae5d1008bc8d4268e2e327f7395c66abe589bde1)。更新後にGitHubから再取得し、134件JSON解析・slug重複なし・41件meta・35件verified・4動画ID・JavaScript構文の成功を確認。
+- **公開サイト到達・スマホ実機・動画再生の最終確認は未完了**。Web閲覧では `https://kyavet.com/mlbb/` に到達できず、コンテナのDNSも失敗。これはGitHub保存の成功と別管理。契約書は全キャラの資料照合と公開確認が終わるまで触れない。
+
+### 次に対応
+
+- 残り93件の `meta2026` 未整備キャラを順次追加（Benedetta、Brody、Bruno、Cecilion、Chang'e等から）。検証済みの古い資料は旧パッチと注記する。
+- `verified` の35件も全Lv実機検証完了ではないため、ゲーム内日本語名・パッシブ・CD・ダメージ係数と2.2.16aの差分、最新の通常版を確認する。相性統計はランク・日付・対象集計を分離して扱う。
+- kyavet.comのPages設定とDNS・公開反映・スマホUI動作を別途確認。サイトの到達は未確認であり完了扱いにしない。
