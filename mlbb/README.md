@@ -1,11 +1,11 @@
 # MLBB 日本語図鑑 — データ保守メモ
 
-更新：2026-11-12（日本時間）。公開ページ：`https://kyavet.com/mlbb/`、本体：`mlbb/index.html`。GitHub への反映は確認済み。公開 URL の外部到達確認は別途実施する。
+更新：2026-11-13（日本時間）。公開ページ：`https://kyavet.com/mlbb/`、本体：`mlbb/index.html`。GitHub への反映は確認済み。公開 URL の外部到達確認は別途実施する。
 
 ## 現在の収録と進捗
 
 - 収録 134件：通常サーバー133体＋Advanced Server の Dori（`isPlayable:false`）1体。**134体実装済みとは表現しない**。
-- `guide` の固有メモ：40件。`verified` のスキル資料照合：40件。**別軸**の `meta2026`（コンボ・主要装備・対面・連携候補の出典付き記録）は46件。重複があるため合算して完全検証数とはしない。全Lvの実機検証完了数ではない。
+- `guide` の固有メモ：45件。`verified` のスキル資料照合：45件。**別軸**の `meta2026`（コンボ・主要装備・対面・連携候補の出典付き記録）は51件。重複があるため合算して完全検証数とはしない。全Lvの実機検証完了数ではない。
 - 2026-11-05に通常版2.2.16（9月16日）の23体、10月14日調整（2.2.16a/2.2.16.1232）の5体、合計26体・28件の**資料に紐づけた変更差分**を追加。既存の試験版記録を含むパッチ履歴は27体・31件。パッチ差分は「最新の全Lv確定値」ではない。
 - 全件で名前・役割・日本語効果要約・レーン等を収録。パッチ別のスキル係数・装備・対面統計・固有動画の網羅は**未完**。
 - データの単一ソースは `<script id="embedded" type="application/json">…</script>` に格納された134件。実行時に `const H=JSON.parse(document.getElementById('embedded').textContent)` で参照。旧版のように JSON と JavaScript に二重記載しない。
@@ -118,3 +118,16 @@
 - **公開確認に関する制限**：https://kyavet.com/mlbb/ はWeb閲覧環境から到達できず、一般ユーザーのページ表示/スマホ実機/埋込動画の動作確認は未完了。コミット保存を公開成功と同一視しない。
 - **残り88件にmeta2026がない**。未照合キャラの優先対象は今回の2.2.23の変更があったXavier/Lunox/Gloo/Atlas/Melissa/Popol and Kupaの詳細CDと装備、続いて他の未整備ヒーロー。過去のキャラ情報も現在のランクパッチと出典日を確認し直す。
 - 契約書・利用規約はユーザーの指示どおり**全キャラの検証と公開が完了するまで着手しない**。
+
+
+## 2026-11-13：5体追加・5技比較対応・旧パッチ公式動画2本
+
+- **Clint / Cyclops / Dyrroth / Esmeralda / Eudora** の5体に、パッシブ・S1・S2・ULTの固有名/日本語効果要約、コンボ、主要3装備、出典と区別した6枠投稿構成、エンブレム/タレント/スペル、得意/苦手な相手の候補と味方連携候補、立ち回り、出典が明記された一部Lv別CD・ダメージ参考値を追加。meta2026 **46→51件**、verified **40→45件**、guide **40→45件**。134件は不変（通常版133＋試験版Dori1）。**未整備83件**。
+- 参照したランク統計と主な3枠装備は **MLBBDexの通常版2.2.16** 掲載データ（Clint/Cyclopsは2026-10-19、Dyrroth/Esmeralda/Eudoraは2026-11-09の表示）。Lv別技は **MLBB Guides 2026-09-29/2026-11-01** の時点の参考値。サイト上の確認日（11-13）を「11-13にゲーム内完全更新された」と読み替えない。**11-11リリースの通常版2.2.23に対する最新の全Lv・全レーンの適合検証はまだ行っていない**。
+- 旧版の技動画を2本追加：Clint（Moonton公式2024-05-06、gFK9Ti6vnok）、Esmeralda（Moonton公式2024-03-11、EbQdb91c5Bk）。動画はタップで遅延読み込み。両方に**旧パッチ**と表示し、現行数値の証拠には使わない。
+- 3体比較ページの技一覧を、従来の固定4行から**比較対象が5技を持つときも5行表示**する方式に修正。ポポル＆クパ等のパッシブ＋S1/S2/S3＋ULTを途中で省略しない。検証状況の「全Lv未検証」は、古い出典付き参考値がある場合に限り「一部旧資料値あり・実機未完了」と具体化。
+- **データ精度チェック**：Eudoraの2026-10-14弱体化ULT値について、パッチ資料で確認できるのは基礎 **540〜900 / 270〜450 / 300〜500** のレンジ。途中のLv値を計算で捏造せず、レンジとして2カ所の記録を修正。さらにMLBB Guides掲載の旧ULT係数を2.2.16aの現在値と混同しない。CyclopsのULT基礎値とEsmeraldaのS1シールド基礎値には資料内矛盾があるため未確定とする。
+- 出典：[MLBBDex Clint](https://mlbbdex.com/en/heroes/clint) / [Cyclops](https://mlbbdex.com/en/heroes/cyclops) / [Dyrroth](https://mlbbdex.com/en/heroes/dyrroth) / [Esmeralda](https://mlbbdex.com/en/heroes/esmeralda) / [Eudora](https://mlbbdex.com/en/heroes/eudora)、[MLBB Guides Clintの技](https://www.mlbbguides.com/heroes/clint/skills/) / [Cyclops](https://www.mlbbguides.com/heroes/cyclops/skills/) / [Dyrroth](https://www.mlbbguides.com/heroes/dyrroth/skills/) / [Esmeralda](https://www.mlbbguides.com/heroes/esmeralda/skills/) / [Eudora](https://www.mlbbguides.com/heroes/eudora/skills/)、[Eudora通常版10月14日パッチ](https://hub-game.com/mlbb/ja/patches/2.2.16.1232)、[最新掲載の通常版2.2.23](https://mlbbhub.com/patch-notes/original/2.2.23)。
+- GitHub変更：[攻略・比較・動画拡充コミット](https://github.com/zmew/kyavet-site/commit/eaf7c80bbb46df8455c4497db41b0459c99e6ecb)、[Eudora数値表記の修正](https://github.com/zmew/kyavet-site/commit/68f9f4a83168f7dccc2f1f063917f61507aadc76)。
+- **再取得テスト**：変更後の134件JSONを解析、slug重複ゼロ、meta51・verified45・guide45。HTML内のJavaScript構文テスト成功。GitHub Pagesのビルド実行は確認中。公開URL https://kyavet.com/mlbb/ の一般ブラウザ到達・スマホ実機・動画再生は引き続き未検証。**GitHubへの保存のみで公開完了としない**。
+- **次の課題**：残り83件（Chou、Cici、Claude、ほか）の固有攻略拡充と、既掲載51件のパッチ2.2.23に対する最新技値照合。古い参考数値の確定値への取り違え防止。5技比較を実機/ブラウザで検証、Pages公開状態の確認。全件検証・公開完了まで契約書や利用規約に着手しない。
